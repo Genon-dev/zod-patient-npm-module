@@ -22,6 +22,7 @@ export const ReservationSchema = z.object({
   doctorId: z.number().int(),
   userId: z.string(),
   startAt: z.coerce.date(),
+  endAt: z.coerce.date().nullable(),
   meetingPasscode: z.string().nullable(),
   meetingId: z.string().nullable(),
   meetingUrl: z.string().nullable(),
