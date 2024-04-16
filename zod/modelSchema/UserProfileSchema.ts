@@ -17,7 +17,7 @@ export const UserProfileSchema = z.object({
   month: z.string(),
   day: z.string(),
   gender: z.string(),
-  pincode: z.string(),
+  postcode: z.string(),
   prefecture: z.string(),
   city: z.string(),
   buildingName: z.string().nullable(),
