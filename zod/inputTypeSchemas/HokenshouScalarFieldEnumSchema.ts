@@ -1,5 +1,5 @@
 import { z } from 'zod';
 
-export const HokenshouScalarFieldEnumSchema = z.enum(['id','frontURL','backURL','userId','createdAt','updatedAt']);
+export const HokenshouScalarFieldEnumSchema = z.enum(['id','frontPath','backPath','userId','createdAt','updatedAt']);
 
 export default HokenshouScalarFieldEnumSchema;
