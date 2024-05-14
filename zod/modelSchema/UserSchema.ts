@@ -16,7 +16,7 @@ export const UserSchema = z.object({
   id: z.string().cuid(),
   lineId: z.string().nullable(),
   reservaUid: z.string().nullable(),
-  profileImage: z.string(),
+  profileImage: z.string().nullable(),
   phoneNo: z.string(),
   isProfileCreated: z.boolean(),
   isHokenshouRegistered: z.boolean(),

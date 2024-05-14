@@ -29,6 +29,7 @@ export const ReservationSchema = z.object({
   deliveryMethodId: z.number().int().nullable(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
+  canceledAt: z.coerce.date().nullable(),
   systemFee: z.number().int().nullable(),
   medicalFee: z.number().int().nullable(),
   deliveryFee: z.number().int().nullable(),

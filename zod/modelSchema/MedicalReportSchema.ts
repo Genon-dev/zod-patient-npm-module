@@ -8,7 +8,7 @@ import { ReservationWithRelationsSchema } from './ReservationSchema'
 
 export const MedicalReportSchema = z.object({
   id: z.number().int(),
-  fileUrl: z.string(),
+  filePath: z.string().nullable(),
   fileName: z.string().nullable(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),

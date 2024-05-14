@@ -10,7 +10,7 @@ import { UserWithRelationsSchema } from './UserSchema'
 export const DocumentSchema = z.object({
   category: DocumentCategorySchema,
   id: z.number().int(),
-  fileUrl: z.string().nullable(),
+  filePath: z.string().nullable(),
   userId: z.string(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),

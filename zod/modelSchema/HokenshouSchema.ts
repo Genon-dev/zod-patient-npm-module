@@ -8,8 +8,8 @@ import { UserWithRelationsSchema } from './UserSchema'
 
 export const HokenshouSchema = z.object({
   id: z.number().int(),
-  frontURL: z.string(),
-  backURL: z.string(),
+  frontPath: z.string().nullable(),
+  backPath: z.string().nullable(),
   userId: z.string(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
