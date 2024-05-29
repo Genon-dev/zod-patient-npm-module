@@ -9,6 +9,7 @@ import { UserWithRelationsSchema } from './UserSchema'
 export const UserProfileSchema = z.object({
   id: z.number().int(),
   userId: z.string(),
+  email: z.string(),
   firstName: z.string(),
   lastName: z.string(),
   firstNameKana: z.string(),
@@ -21,7 +22,6 @@ export const UserProfileSchema = z.object({
   prefecture: z.string(),
   city: z.string(),
   buildingName: z.string().nullable(),
-  hokenshouRegisteredDate: z.string().nullable(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
 })
