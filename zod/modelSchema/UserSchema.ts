@@ -21,7 +21,6 @@ export const UserSchema = z.object({
   isProfileCreated: z.boolean(),
   isHokenshouRegistered: z.boolean(),
   isMobileVerified: z.boolean(),
-  isGMOmember: z.boolean(),
   hasPaymentMethod: z.boolean(),
   gmoPgMemberId: z.string().nullable(),
   createdAt: z.coerce.date(),
