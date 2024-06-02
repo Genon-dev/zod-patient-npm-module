@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { DocumentCategorySchema } from '../inputTypeSchemas/DocumentCategorySchema'
 import type { UserWithRelations } from './UserSchema'
 import { UserWithRelationsSchema } from './UserSchema'
 
@@ -8,10 +7,10 @@ import { UserWithRelationsSchema } from './UserSchema'
 /////////////////////////////////////////
 
 export const DocumentSchema = z.object({
-  category: DocumentCategorySchema,
   id: z.number().int(),
   filePath: z.string().nullable(),
   userId: z.string(),
+  title: z.string().nullable(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
 })

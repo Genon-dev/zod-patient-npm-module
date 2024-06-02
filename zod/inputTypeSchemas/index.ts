@@ -10,5 +10,4 @@ export { ReservationScalarFieldEnumSchema } from './ReservationScalarFieldEnumSc
 export { PaymentScalarFieldEnumSchema } from './PaymentScalarFieldEnumSchema';
 export { SortOrderSchema } from './SortOrderSchema';
 export { NullsOrderSchema } from './NullsOrderSchema';
-export { DocumentCategorySchema } from './DocumentCategorySchema';
 export { ReservationStatusSchema } from './ReservationStatusSchema';
