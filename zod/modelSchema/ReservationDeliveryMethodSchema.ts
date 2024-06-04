@@ -21,13 +21,13 @@ export type ReservationDeliveryMethod = z.infer<typeof ReservationDeliveryMethod
 /////////////////////////////////////////
 
 export type ReservationDeliveryMethodRelations = {
-  Reservation: ReservationWithRelations[];
+  reservations: ReservationWithRelations[];
 };
 
 export type ReservationDeliveryMethodWithRelations = z.infer<typeof ReservationDeliveryMethodSchema> & ReservationDeliveryMethodRelations
 
 export const ReservationDeliveryMethodWithRelationsSchema: z.ZodType<ReservationDeliveryMethodWithRelations> = ReservationDeliveryMethodSchema.merge(z.object({
-  Reservation: z.lazy(() => ReservationWithRelationsSchema).array(),
+  reservations: z.lazy(() => ReservationWithRelationsSchema).array(),
 }))
 
 export default ReservationDeliveryMethodSchema;
