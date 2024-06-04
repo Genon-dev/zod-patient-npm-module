@@ -7,3 +7,4 @@ export * from './DoctorSchema';
 export * from './ReservationDeliveryMethodSchema';
 export * from './ReservationSchema';
 export * from './PaymentSchema';
+export * from './InvoiceDeliveryOptionSchema';

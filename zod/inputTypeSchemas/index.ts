@@ -8,6 +8,7 @@ export { DoctorScalarFieldEnumSchema } from './DoctorScalarFieldEnumSchema';
 export { ReservationDeliveryMethodScalarFieldEnumSchema } from './ReservationDeliveryMethodScalarFieldEnumSchema';
 export { ReservationScalarFieldEnumSchema } from './ReservationScalarFieldEnumSchema';
 export { PaymentScalarFieldEnumSchema } from './PaymentScalarFieldEnumSchema';
+export { InvoiceDeliveryOptionScalarFieldEnumSchema } from './InvoiceDeliveryOptionScalarFieldEnumSchema';
 export { SortOrderSchema } from './SortOrderSchema';
 export { NullsOrderSchema } from './NullsOrderSchema';
 export { ReservationStatusSchema } from './ReservationStatusSchema';
