@@ -10,6 +10,7 @@ export const UserProfileSchema = z.object({
   id: z.number().int(),
   userId: z.string(),
   email: z.string(),
+  lineName: z.string(),
   firstName: z.string(),
   lastName: z.string(),
   firstNameKana: z.string(),
