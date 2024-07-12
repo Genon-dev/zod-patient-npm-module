@@ -21,6 +21,7 @@ export const ReservationSchema = z.object({
   status: ReservationStatusSchema,
   id: z.number().int(),
   reservaReservationId: z.string(),
+  reservaUrl: z.string().nullable(),
   doctorId: z.number().int(),
   userId: z.string(),
   startAt: z.coerce.date(),
@@ -36,6 +37,7 @@ export const ReservationSchema = z.object({
   systemFee: z.number().int().nullable(),
   medicalFee: z.number().int().nullable(),
   deliveryFee: z.number().int().nullable(),
+  medicineFee: z.number().int().nullable(),
   medicalReportId: z.number().int().nullable(),
 })
 
