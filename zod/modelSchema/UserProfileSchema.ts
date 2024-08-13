@@ -1,6 +1,8 @@
-import { z } from 'zod';
-import type { UserWithRelations } from './UserSchema'
-import { UserWithRelationsSchema } from './UserSchema'
+import { z } from "zod";
+import type { UserWithRelations } from "./UserSchema";
+import type { DeliveryMethodInvoiceDeliveryOptionWithRelations } from "./DeliveryMethodInvoiceDeliveryOptionSchema";
+import { UserWithRelationsSchema } from "./UserSchema";
+import { DeliveryMethodInvoiceDeliveryOptionWithRelationsSchema } from "./DeliveryMethodInvoiceDeliveryOptionSchema";
 
 /////////////////////////////////////////
 // USER PROFILE SCHEMA
@@ -25,9 +27,10 @@ export const UserProfileSchema = z.object({
   buildingName: z.string().nullable(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
-})
+  deliveryMethodInvoiceDeliveryOptionId: z.number().int().nullable(),
+});
 
-export type UserProfile = z.infer<typeof UserProfileSchema>
+export type UserProfile = z.infer<typeof UserProfileSchema>;
 
 /////////////////////////////////////////
 // USER PROFILE RELATION SCHEMA
@@ -35,12 +38,20 @@ export type UserProfile = z.infer<typeof UserProfileSchema>
 
 export type UserProfileRelations = {
   user: UserWithRelations;
+  deliveryMethodInvoiceDeliveryOption?: DeliveryMethodInvoiceDeliveryOptionWithRelations | null;
 };
 
-export type UserProfileWithRelations = z.infer<typeof UserProfileSchema> & UserProfileRelations
+export type UserProfileWithRelations = z.infer<typeof UserProfileSchema> &
+  UserProfileRelations;
 
-export const UserProfileWithRelationsSchema: z.ZodType<UserProfileWithRelations> = UserProfileSchema.merge(z.object({
-  user: z.lazy(() => UserWithRelationsSchema),
-}))
+export const UserProfileWithRelationsSchema: z.ZodType<UserProfileWithRelations> =
+  UserProfileSchema.merge(
+    z.object({
+      user: z.lazy(() => UserWithRelationsSchema),
+      deliveryMethodInvoiceDeliveryOption: z
+        .lazy(() => DeliveryMethodInvoiceDeliveryOptionWithRelationsSchema)
+        .nullable(),
+    })
+  );
 
 export default UserProfileSchema;
