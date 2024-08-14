@@ -13,6 +13,8 @@ export const ReservationScalarFieldEnumSchema = z.enum([
   "meetingUrl",
   "zoomHost",
   "status",
+  "deliveryMethodId",
+  "invoiceDeliveryOptionId",
   "createdAt",
   "updatedAt",
   "canceledAt",

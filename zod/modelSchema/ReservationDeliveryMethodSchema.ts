@@ -1,5 +1,7 @@
 import { z } from "zod";
+import type { ReservationWithRelations } from "./ReservationSchema";
 import type { DeliveryMethodInvoiceDeliveryOptionWithRelations } from "./DeliveryMethodInvoiceDeliveryOptionSchema";
+import { ReservationWithRelationsSchema } from "./ReservationSchema";
 import { DeliveryMethodInvoiceDeliveryOptionWithRelationsSchema } from "./DeliveryMethodInvoiceDeliveryOptionSchema";
 
 /////////////////////////////////////////
@@ -23,6 +25,7 @@ export type ReservationDeliveryMethod = z.infer<
 /////////////////////////////////////////
 
 export type ReservationDeliveryMethodRelations = {
+  reservations: ReservationWithRelations[];
   deliveryMethodInvoiceDeliveryOptions: DeliveryMethodInvoiceDeliveryOptionWithRelations[];
 };
 
@@ -34,6 +37,7 @@ export type ReservationDeliveryMethodWithRelations = z.infer<
 export const ReservationDeliveryMethodWithRelationsSchema: z.ZodType<ReservationDeliveryMethodWithRelations> =
   ReservationDeliveryMethodSchema.merge(
     z.object({
+      reservations: z.lazy(() => ReservationWithRelationsSchema).array(),
       deliveryMethodInvoiceDeliveryOptions: z
         .lazy(() => DeliveryMethodInvoiceDeliveryOptionWithRelationsSchema)
         .array(),

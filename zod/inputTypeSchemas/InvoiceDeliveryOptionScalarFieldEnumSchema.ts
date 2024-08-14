@@ -4,6 +4,7 @@ export const InvoiceDeliveryOptionScalarFieldEnumSchema = z.enum([
   "id",
   "name",
   "mailType",
+  "deliveryFee",
   "order",
   "createdAt",
   "updatedAt",
