@@ -13,7 +13,6 @@ export const InvoiceDeliveryOptionSchema = z.object({
   mailType: MailTypeSchema,
   id: z.number().int(),
   name: z.string(),
-  deliveryFee: z.number().int(),
   order: z.number().int(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
