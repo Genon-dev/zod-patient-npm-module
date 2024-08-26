@@ -1,17 +1,17 @@
-import { z } from 'zod';
-import { ReservationStatusSchema } from '../inputTypeSchemas/ReservationStatusSchema'
-import type { DoctorWithRelations } from './DoctorSchema'
-import type { UserWithRelations } from './UserSchema'
-import type { ReservationDeliveryMethodWithRelations } from './ReservationDeliveryMethodSchema'
-import type { InvoiceDeliveryOptionWithRelations } from './InvoiceDeliveryOptionSchema'
-import type { PaymentWithRelations } from './PaymentSchema'
-import type { MedicalReportWithRelations } from './MedicalReportSchema'
-import { DoctorWithRelationsSchema } from './DoctorSchema'
-import { UserWithRelationsSchema } from './UserSchema'
-import { ReservationDeliveryMethodWithRelationsSchema } from './ReservationDeliveryMethodSchema'
-import { InvoiceDeliveryOptionWithRelationsSchema } from './InvoiceDeliveryOptionSchema'
-import { PaymentWithRelationsSchema } from './PaymentSchema'
-import { MedicalReportWithRelationsSchema } from './MedicalReportSchema'
+import { z } from "zod";
+import { ReservationStatusSchema } from "../inputTypeSchemas/ReservationStatusSchema";
+import type { DoctorWithRelations } from "./DoctorSchema";
+import type { UserWithRelations } from "./UserSchema";
+import type { ReservationDeliveryMethodWithRelations } from "./ReservationDeliveryMethodSchema";
+import type { InvoiceDeliveryOptionWithRelations } from "./InvoiceDeliveryOptionSchema";
+import type { PaymentWithRelations } from "./PaymentSchema";
+import type { MedicalReportWithRelations } from "./MedicalReportSchema";
+import { DoctorWithRelationsSchema } from "./DoctorSchema";
+import { UserWithRelationsSchema } from "./UserSchema";
+import { ReservationDeliveryMethodWithRelationsSchema } from "./ReservationDeliveryMethodSchema";
+import { InvoiceDeliveryOptionWithRelationsSchema } from "./InvoiceDeliveryOptionSchema";
+import { PaymentWithRelationsSchema } from "./PaymentSchema";
+import { MedicalReportWithRelationsSchema } from "./MedicalReportSchema";
 
 /////////////////////////////////////////
 // RESERVATION SCHEMA
@@ -40,9 +40,9 @@ export const ReservationSchema = z.object({
   deliveryFee: z.number().int().nullable(),
   medicineFee: z.number().int().nullable(),
   medicalReportId: z.number().int().nullable(),
-})
+});
 
-export type Reservation = z.infer<typeof ReservationSchema>
+export type Reservation = z.infer<typeof ReservationSchema>;
 
 /////////////////////////////////////////
 // RESERVATION RELATION SCHEMA
@@ -57,15 +57,23 @@ export type ReservationRelations = {
   medicalReport?: MedicalReportWithRelations | null;
 };
 
-export type ReservationWithRelations = z.infer<typeof ReservationSchema> & ReservationRelations
+export type ReservationWithRelations = z.infer<typeof ReservationSchema> &
+  ReservationRelations;
 
-export const ReservationWithRelationsSchema: z.ZodType<ReservationWithRelations> = ReservationSchema.merge(z.object({
-  doctor: z.lazy(() => DoctorWithRelationsSchema),
-  user: z.lazy(() => UserWithRelationsSchema),
-  deliveryMethod: z.lazy(() => ReservationDeliveryMethodWithRelationsSchema).nullable(),
-  invoiceDeliveryOption: z.lazy(() => InvoiceDeliveryOptionWithRelationsSchema).nullable(),
-  payments: z.lazy(() => PaymentWithRelationsSchema).array(),
-  medicalReport: z.lazy(() => MedicalReportWithRelationsSchema).nullable(),
-}))
+export const ReservationWithRelationsSchema: z.ZodType<ReservationWithRelations> =
+  ReservationSchema.merge(
+    z.object({
+      doctor: z.lazy(() => DoctorWithRelationsSchema),
+      user: z.lazy(() => UserWithRelationsSchema),
+      deliveryMethod: z
+        .lazy(() => ReservationDeliveryMethodWithRelationsSchema)
+        .nullable(),
+      invoiceDeliveryOption: z
+        .lazy(() => InvoiceDeliveryOptionWithRelationsSchema)
+        .nullable(),
+      payments: z.lazy(() => PaymentWithRelationsSchema).array(),
+      medicalReport: z.lazy(() => MedicalReportWithRelationsSchema).nullable(),
+    })
+  );
 
 export default ReservationSchema;
