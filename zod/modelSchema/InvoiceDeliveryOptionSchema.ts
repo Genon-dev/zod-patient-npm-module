@@ -10,7 +10,7 @@ import { DeliveryMethodInvoiceDeliveryOptionWithRelationsSchema } from "./Delive
 /////////////////////////////////////////
 
 export const InvoiceDeliveryOptionSchema = z.object({
-  mailType: MailTypeSchema.nullable(),
+  mailType: MailTypeSchema,
   id: z.number().int(),
   name: z.string(),
   order: z.number().int(),

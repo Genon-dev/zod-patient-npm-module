@@ -13,6 +13,7 @@ export const ReservationDeliveryMethodSchema = z.object({
   keyword: z.string(),
   fee: z.number().int(),
   description: z.string(),
+  order: z.number().int().nullable(),
   isDeleted: z.boolean(),
 });
 
