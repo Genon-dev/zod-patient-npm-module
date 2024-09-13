@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { PaymentTypeSchema } from '../inputTypeSchemas/PaymentTypeSchema'
 import type { ReservationWithRelations } from './ReservationSchema'
 import { ReservationWithRelationsSchema } from './ReservationSchema'
 
@@ -7,6 +8,7 @@ import { ReservationWithRelationsSchema } from './ReservationSchema'
 /////////////////////////////////////////
 
 export const PaymentSchema = z.object({
+  type: PaymentTypeSchema,
   id: z.number().int(),
   totalFee: z.number().int(),
   reservationId: z.number().int(),
