@@ -1,5 +1,7 @@
 export * from './UserSchema';
 export * from './UserProfileSchema';
+export * from './AdminUserSchema';
+export * from './AdminUserUserPasswordResetSchema';
 export * from './HokenshouSchema';
 export * from './DocumentSchema';
 export * from './MedicalReportSchema';
@@ -9,3 +11,4 @@ export * from './ReservationSchema';
 export * from './PaymentSchema';
 export * from './InvoiceDeliveryOptionSchema';
 export * from './DeliveryMethodInvoiceDeliveryOptionSchema';
+export * from './ZoomStartNotificationHistorySchema';
