@@ -3,10 +3,18 @@ import type { UserProfileWithRelations } from './UserProfileSchema'
 import type { HokenshouWithRelations } from './HokenshouSchema'
 import type { DocumentWithRelations } from './DocumentSchema'
 import type { ReservationWithRelations } from './ReservationSchema'
+import type { HealthRecordRangeWithRelations } from './HealthRecordRangeSchema'
+import type { HealthRecordDailyWithRelations } from './HealthRecordDailySchema'
+import type { UserMedicineWithRelations } from './UserMedicineSchema'
+import type { PatientFormWithRelations } from './PatientFormSchema'
 import { UserProfileWithRelationsSchema } from './UserProfileSchema'
 import { HokenshouWithRelationsSchema } from './HokenshouSchema'
 import { DocumentWithRelationsSchema } from './DocumentSchema'
 import { ReservationWithRelationsSchema } from './ReservationSchema'
+import { HealthRecordRangeWithRelationsSchema } from './HealthRecordRangeSchema'
+import { HealthRecordDailyWithRelationsSchema } from './HealthRecordDailySchema'
+import { UserMedicineWithRelationsSchema } from './UserMedicineSchema'
+import { PatientFormWithRelationsSchema } from './PatientFormSchema'
 
 /////////////////////////////////////////
 // USER SCHEMA
@@ -38,6 +46,10 @@ export type UserRelations = {
   hokenshous: HokenshouWithRelations[];
   documents: DocumentWithRelations[];
   reservations: ReservationWithRelations[];
+  healthRecordRanges: HealthRecordRangeWithRelations[];
+  healthRecordDailys: HealthRecordDailyWithRelations[];
+  userMedicines: UserMedicineWithRelations[];
+  patientForms: PatientFormWithRelations[];
 };
 
 export type UserWithRelations = z.infer<typeof UserSchema> & UserRelations
@@ -47,6 +59,10 @@ export const UserWithRelationsSchema: z.ZodType<UserWithRelations> = UserSchema.
   hokenshous: z.lazy(() => HokenshouWithRelationsSchema).array(),
   documents: z.lazy(() => DocumentWithRelationsSchema).array(),
   reservations: z.lazy(() => ReservationWithRelationsSchema).array(),
+  healthRecordRanges: z.lazy(() => HealthRecordRangeWithRelationsSchema).array(),
+  healthRecordDailys: z.lazy(() => HealthRecordDailyWithRelationsSchema).array(),
+  userMedicines: z.lazy(() => UserMedicineWithRelationsSchema).array(),
+  patientForms: z.lazy(() => PatientFormWithRelationsSchema).array(),
 }))
 
 export default UserSchema;
