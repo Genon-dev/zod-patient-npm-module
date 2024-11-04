@@ -6,18 +6,14 @@ import type { ReservationDeliveryMethodWithRelations } from './ReservationDelive
 import type { InvoiceDeliveryOptionWithRelations } from './InvoiceDeliveryOptionSchema'
 import type { PaymentWithRelations } from './PaymentSchema'
 import type { MedicalReportWithRelations } from './MedicalReportSchema'
-import type { PaymentHistoryWithRelations } from './PaymentHistorySchema'
 import type { ZoomStartNotificationHistoryWithRelations } from './ZoomStartNotificationHistorySchema'
-import type { PatientFormWithRelations } from './PatientFormSchema'
 import { DoctorWithRelationsSchema } from './DoctorSchema'
 import { UserWithRelationsSchema } from './UserSchema'
 import { ReservationDeliveryMethodWithRelationsSchema } from './ReservationDeliveryMethodSchema'
 import { InvoiceDeliveryOptionWithRelationsSchema } from './InvoiceDeliveryOptionSchema'
 import { PaymentWithRelationsSchema } from './PaymentSchema'
 import { MedicalReportWithRelationsSchema } from './MedicalReportSchema'
-import { PaymentHistoryWithRelationsSchema } from './PaymentHistorySchema'
 import { ZoomStartNotificationHistoryWithRelationsSchema } from './ZoomStartNotificationHistorySchema'
-import { PatientFormWithRelationsSchema } from './PatientFormSchema'
 
 /////////////////////////////////////////
 // RESERVATION SCHEMA
@@ -63,9 +59,7 @@ export type ReservationRelations = {
   invoiceDeliveryOption?: InvoiceDeliveryOptionWithRelations | null;
   payments: PaymentWithRelations[];
   medicalReport?: MedicalReportWithRelations | null;
-  paymentHistorys: PaymentHistoryWithRelations[];
   zoomStartNotificationHistorys: ZoomStartNotificationHistoryWithRelations[];
-  patientForms: PatientFormWithRelations[];
 };
 
 export type ReservationWithRelations = z.infer<typeof ReservationSchema> & ReservationRelations
@@ -77,9 +71,7 @@ export const ReservationWithRelationsSchema: z.ZodType<ReservationWithRelations>
   invoiceDeliveryOption: z.lazy(() => InvoiceDeliveryOptionWithRelationsSchema).nullable(),
   payments: z.lazy(() => PaymentWithRelationsSchema).array(),
   medicalReport: z.lazy(() => MedicalReportWithRelationsSchema).nullable(),
-  paymentHistorys: z.lazy(() => PaymentHistoryWithRelationsSchema).array(),
   zoomStartNotificationHistorys: z.lazy(() => ZoomStartNotificationHistoryWithRelationsSchema).array(),
-  patientForms: z.lazy(() => PatientFormWithRelationsSchema).array(),
 }))
 
 export default ReservationSchema;
