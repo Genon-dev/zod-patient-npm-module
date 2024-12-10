@@ -2,8 +2,10 @@ import { z } from 'zod';
 import { UserRoleSchema } from '../inputTypeSchemas/UserRoleSchema'
 import type { AdminUserUserPasswordResetWithRelations } from './AdminUserUserPasswordResetSchema'
 import type { ZoomStartNotificationHistoryWithRelations } from './ZoomStartNotificationHistorySchema'
+import type { PaymentHistoryWithRelations } from './PaymentHistorySchema'
 import { AdminUserUserPasswordResetWithRelationsSchema } from './AdminUserUserPasswordResetSchema'
 import { ZoomStartNotificationHistoryWithRelationsSchema } from './ZoomStartNotificationHistorySchema'
+import { PaymentHistoryWithRelationsSchema } from './PaymentHistorySchema'
 
 /////////////////////////////////////////
 // ADMIN USER SCHEMA
@@ -30,6 +32,7 @@ export type AdminUser = z.infer<typeof AdminUserSchema>
 export type AdminUserRelations = {
   UserPasswordReset: AdminUserUserPasswordResetWithRelations[];
   zoomStartNotificationHistorys: ZoomStartNotificationHistoryWithRelations[];
+  paymentHistorys: PaymentHistoryWithRelations[];
 };
 
 export type AdminUserWithRelations = z.infer<typeof AdminUserSchema> & AdminUserRelations
@@ -37,6 +40,7 @@ export type AdminUserWithRelations = z.infer<typeof AdminUserSchema> & AdminUser
 export const AdminUserWithRelationsSchema: z.ZodType<AdminUserWithRelations> = AdminUserSchema.merge(z.object({
   UserPasswordReset: z.lazy(() => AdminUserUserPasswordResetWithRelationsSchema).array(),
   zoomStartNotificationHistorys: z.lazy(() => ZoomStartNotificationHistoryWithRelationsSchema).array(),
+  paymentHistorys: z.lazy(() => PaymentHistoryWithRelationsSchema).array(),
 }))
 
 export default AdminUserSchema;

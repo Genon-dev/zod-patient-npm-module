@@ -1,10 +1,12 @@
 import { z } from 'zod';
-import type { UserProfileWithRelations } from './UserProfileSchema'
 import type { InvoiceDeliveryOptionWithRelations } from './InvoiceDeliveryOptionSchema'
 import type { ReservationDeliveryMethodWithRelations } from './ReservationDeliveryMethodSchema'
-import { UserProfileWithRelationsSchema } from './UserProfileSchema'
+import type { UserProfileWithRelations } from './UserProfileSchema'
+import type { ReservationWithRelations } from './ReservationSchema'
 import { InvoiceDeliveryOptionWithRelationsSchema } from './InvoiceDeliveryOptionSchema'
 import { ReservationDeliveryMethodWithRelationsSchema } from './ReservationDeliveryMethodSchema'
+import { UserProfileWithRelationsSchema } from './UserProfileSchema'
+import { ReservationWithRelationsSchema } from './ReservationSchema'
 
 /////////////////////////////////////////
 // DELIVERY METHOD INVOICE DELIVERY OPTION SCHEMA
@@ -24,17 +26,19 @@ export type DeliveryMethodInvoiceDeliveryOption = z.infer<typeof DeliveryMethodI
 /////////////////////////////////////////
 
 export type DeliveryMethodInvoiceDeliveryOptionRelations = {
-  userProfiles: UserProfileWithRelations[];
   invoiceDeliveryOption: InvoiceDeliveryOptionWithRelations;
   deliveryMethod: ReservationDeliveryMethodWithRelations;
+  userProfiles: UserProfileWithRelations[];
+  reservations: ReservationWithRelations[];
 };
 
 export type DeliveryMethodInvoiceDeliveryOptionWithRelations = z.infer<typeof DeliveryMethodInvoiceDeliveryOptionSchema> & DeliveryMethodInvoiceDeliveryOptionRelations
 
 export const DeliveryMethodInvoiceDeliveryOptionWithRelationsSchema: z.ZodType<DeliveryMethodInvoiceDeliveryOptionWithRelations> = DeliveryMethodInvoiceDeliveryOptionSchema.merge(z.object({
-  userProfiles: z.lazy(() => UserProfileWithRelationsSchema).array(),
   invoiceDeliveryOption: z.lazy(() => InvoiceDeliveryOptionWithRelationsSchema),
   deliveryMethod: z.lazy(() => ReservationDeliveryMethodWithRelationsSchema),
+  userProfiles: z.lazy(() => UserProfileWithRelationsSchema).array(),
+  reservations: z.lazy(() => ReservationWithRelationsSchema).array(),
 }))
 
 export default DeliveryMethodInvoiceDeliveryOptionSchema;
