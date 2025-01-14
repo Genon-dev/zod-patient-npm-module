@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { MedicineFrequencyCodeSchema } from '../inputTypeSchemas/MedicineFrequencyCodeSchema'
-import type { TreatmentMecicineWithRelations } from './TreatmentMecicineSchema'
-import { TreatmentMecicineWithRelationsSchema } from './TreatmentMecicineSchema'
+import type { TreatmentMedicineCategoryWithRelations } from './TreatmentMedicineCategorySchema'
+import { TreatmentMedicineCategoryWithRelationsSchema } from './TreatmentMedicineCategorySchema'
 
 /////////////////////////////////////////
 // MEDICINE FREQUENCY SCHEMA
@@ -24,13 +24,13 @@ export type MedicineFrequency = z.infer<typeof MedicineFrequencySchema>
 /////////////////////////////////////////
 
 export type MedicineFrequencyRelations = {
-  treatmentMecicines: TreatmentMecicineWithRelations[];
+  treatmentMedicineCategories: TreatmentMedicineCategoryWithRelations[];
 };
 
 export type MedicineFrequencyWithRelations = z.infer<typeof MedicineFrequencySchema> & MedicineFrequencyRelations
 
 export const MedicineFrequencyWithRelationsSchema: z.ZodType<MedicineFrequencyWithRelations> = MedicineFrequencySchema.merge(z.object({
-  treatmentMecicines: z.lazy(() => TreatmentMecicineWithRelationsSchema).array(),
+  treatmentMedicineCategories: z.lazy(() => TreatmentMedicineCategoryWithRelationsSchema).array(),
 }))
 
 export default MedicineFrequencySchema;

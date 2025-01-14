@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import type { MedicineCategoryWithRelations } from './MedicineCategorySchema'
 import type { UserMedicineWithRelations } from './UserMedicineSchema'
-import type { TreatmentMecicineWithRelations } from './TreatmentMecicineSchema'
+import type { TreatmentMedicineWithRelations } from './TreatmentMedicineSchema'
 import { MedicineCategoryWithRelationsSchema } from './MedicineCategorySchema'
 import { UserMedicineWithRelationsSchema } from './UserMedicineSchema'
-import { TreatmentMecicineWithRelationsSchema } from './TreatmentMecicineSchema'
+import { TreatmentMedicineWithRelationsSchema } from './TreatmentMedicineSchema'
 
 /////////////////////////////////////////
 // MEDICINE SCHEMA
@@ -28,7 +28,7 @@ export type Medicine = z.infer<typeof MedicineSchema>
 export type MedicineRelations = {
   medicineCategory?: MedicineCategoryWithRelations | null;
   userMedicines: UserMedicineWithRelations[];
-  treatmentMecicines: TreatmentMecicineWithRelations[];
+  treatmentMedicines: TreatmentMedicineWithRelations[];
 };
 
 export type MedicineWithRelations = z.infer<typeof MedicineSchema> & MedicineRelations
@@ -36,7 +36,7 @@ export type MedicineWithRelations = z.infer<typeof MedicineSchema> & MedicineRel
 export const MedicineWithRelationsSchema: z.ZodType<MedicineWithRelations> = MedicineSchema.merge(z.object({
   medicineCategory: z.lazy(() => MedicineCategoryWithRelationsSchema).nullable(),
   userMedicines: z.lazy(() => UserMedicineWithRelationsSchema).array(),
-  treatmentMecicines: z.lazy(() => TreatmentMecicineWithRelationsSchema).array(),
+  treatmentMedicines: z.lazy(() => TreatmentMedicineWithRelationsSchema).array(),
 }))
 
 export default MedicineSchema;

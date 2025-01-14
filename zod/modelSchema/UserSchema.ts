@@ -8,6 +8,7 @@ import type { HealthRecordDailyWithRelations } from './HealthRecordDailySchema'
 import type { UserMedicineWithRelations } from './UserMedicineSchema'
 import type { PatientFormWithRelations } from './PatientFormSchema'
 import type { PatientOperationHistoryWithRelations } from './PatientOperationHistorySchema'
+import type { TreatmentWithRelations } from './TreatmentSchema'
 import type { FollowUpRecordWithRelations } from './FollowUpRecordSchema'
 import { UserProfileWithRelationsSchema } from './UserProfileSchema'
 import { HokenshouWithRelationsSchema } from './HokenshouSchema'
@@ -18,6 +19,7 @@ import { HealthRecordDailyWithRelationsSchema } from './HealthRecordDailySchema'
 import { UserMedicineWithRelationsSchema } from './UserMedicineSchema'
 import { PatientFormWithRelationsSchema } from './PatientFormSchema'
 import { PatientOperationHistoryWithRelationsSchema } from './PatientOperationHistorySchema'
+import { TreatmentWithRelationsSchema } from './TreatmentSchema'
 import { FollowUpRecordWithRelationsSchema } from './FollowUpRecordSchema'
 
 /////////////////////////////////////////
@@ -54,6 +56,7 @@ export type UserRelations = {
   userMedicines: UserMedicineWithRelations[];
   patientForms: PatientFormWithRelations[];
   patientOperationHistories: PatientOperationHistoryWithRelations[];
+  treatments: TreatmentWithRelations[];
   followUpRecords: FollowUpRecordWithRelations[];
 };
 
@@ -69,6 +72,7 @@ export const UserWithRelationsSchema: z.ZodType<UserWithRelations> = UserSchema.
   userMedicines: z.lazy(() => UserMedicineWithRelationsSchema).array(),
   patientForms: z.lazy(() => PatientFormWithRelationsSchema).array(),
   patientOperationHistories: z.lazy(() => PatientOperationHistoryWithRelationsSchema).array(),
+  treatments: z.lazy(() => TreatmentWithRelationsSchema).array(),
   followUpRecords: z.lazy(() => FollowUpRecordWithRelationsSchema).array(),
 }))
 

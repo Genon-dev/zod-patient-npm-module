@@ -33,5 +33,6 @@ export * from './PatientFormDlqiSchema';
 export * from './PatientOperationHistorySchema';
 export * from './MedicineFrequencySchema';
 export * from './TreatmentSchema';
-export * from './TreatmentMecicineSchema';
+export * from './TreatmentMedicineCategorySchema';
+export * from './TreatmentMedicineSchema';
 export * from './FollowUpRecordSchema';

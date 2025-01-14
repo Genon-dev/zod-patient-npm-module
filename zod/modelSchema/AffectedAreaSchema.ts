@@ -1,9 +1,9 @@
 import { z } from 'zod';
 import { AffectedAreaCodeSchema } from '../inputTypeSchemas/AffectedAreaCodeSchema'
 import type { HealthRecordDailyImageWithRelations } from './HealthRecordDailyImageSchema'
-import type { TreatmentMecicineWithRelations } from './TreatmentMecicineSchema'
+import type { TreatmentMedicineCategoryWithRelations } from './TreatmentMedicineCategorySchema'
 import { HealthRecordDailyImageWithRelationsSchema } from './HealthRecordDailyImageSchema'
-import { TreatmentMecicineWithRelationsSchema } from './TreatmentMecicineSchema'
+import { TreatmentMedicineCategoryWithRelationsSchema } from './TreatmentMedicineCategorySchema'
 
 /////////////////////////////////////////
 // AFFECTED AREA SCHEMA
@@ -27,14 +27,14 @@ export type AffectedArea = z.infer<typeof AffectedAreaSchema>
 
 export type AffectedAreaRelations = {
   healthRecordDailyImages: HealthRecordDailyImageWithRelations[];
-  treatmentMecicines: TreatmentMecicineWithRelations[];
+  treatmentMedicineCategories: TreatmentMedicineCategoryWithRelations[];
 };
 
 export type AffectedAreaWithRelations = z.infer<typeof AffectedAreaSchema> & AffectedAreaRelations
 
 export const AffectedAreaWithRelationsSchema: z.ZodType<AffectedAreaWithRelations> = AffectedAreaSchema.merge(z.object({
   healthRecordDailyImages: z.lazy(() => HealthRecordDailyImageWithRelationsSchema).array(),
-  treatmentMecicines: z.lazy(() => TreatmentMecicineWithRelationsSchema).array(),
+  treatmentMedicineCategories: z.lazy(() => TreatmentMedicineCategoryWithRelationsSchema).array(),
 }))
 
 export default AffectedAreaSchema;

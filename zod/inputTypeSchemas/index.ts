@@ -34,7 +34,8 @@ export { PatientFormDlqiScalarFieldEnumSchema } from './PatientFormDlqiScalarFie
 export { PatientOperationHistoryScalarFieldEnumSchema } from './PatientOperationHistoryScalarFieldEnumSchema';
 export { MedicineFrequencyScalarFieldEnumSchema } from './MedicineFrequencyScalarFieldEnumSchema';
 export { TreatmentScalarFieldEnumSchema } from './TreatmentScalarFieldEnumSchema';
-export { TreatmentMecicineScalarFieldEnumSchema } from './TreatmentMecicineScalarFieldEnumSchema';
+export { TreatmentMedicineCategoryScalarFieldEnumSchema } from './TreatmentMedicineCategoryScalarFieldEnumSchema';
+export { TreatmentMedicineScalarFieldEnumSchema } from './TreatmentMedicineScalarFieldEnumSchema';
 export { FollowUpRecordScalarFieldEnumSchema } from './FollowUpRecordScalarFieldEnumSchema';
 export { SortOrderSchema } from './SortOrderSchema';
 export { NullsOrderSchema } from './NullsOrderSchema';
@@ -53,4 +54,5 @@ export { PatientOperationHistoryTypeSchema } from './PatientOperationHistoryType
 export { MedicineFrequencyCodeSchema } from './MedicineFrequencyCodeSchema';
 export { NextRecommendedOptionSchema } from './NextRecommendedOptionSchema';
 export { ProactiveInflammationStageSchema } from './ProactiveInflammationStageSchema';
+export { TreatmentMedicineTypeSchema } from './TreatmentMedicineTypeSchema';
 export { FollowUpRecordConditionSchema } from './FollowUpRecordConditionSchema';

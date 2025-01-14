@@ -1,48 +1,46 @@
 import { z } from 'zod';
 import type { TreatmentWithRelations } from './TreatmentSchema'
-import type { MedicineWithRelations } from './MedicineSchema'
+import type { TreatmentMedicineWithRelations } from './TreatmentMedicineSchema'
 import type { AffectedAreaWithRelations } from './AffectedAreaSchema'
 import type { MedicineFrequencyWithRelations } from './MedicineFrequencySchema'
 import { TreatmentWithRelationsSchema } from './TreatmentSchema'
-import { MedicineWithRelationsSchema } from './MedicineSchema'
+import { TreatmentMedicineWithRelationsSchema } from './TreatmentMedicineSchema'
 import { AffectedAreaWithRelationsSchema } from './AffectedAreaSchema'
 import { MedicineFrequencyWithRelationsSchema } from './MedicineFrequencySchema'
 
 /////////////////////////////////////////
-// TREATMENT MECICINE SCHEMA
+// TREATMENT MEDICINE CATEGORY SCHEMA
 /////////////////////////////////////////
 
-export const TreatmentMecicineSchema = z.object({
+export const TreatmentMedicineCategorySchema = z.object({
   id: z.string().cuid(),
   treatmentId: z.string(),
-  freeMedicineName: z.string().nullable(),
-  medicineId: z.string().nullable(),
   affectedAreaId: z.string(),
   frequencyId: z.string(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
 })
 
-export type TreatmentMecicine = z.infer<typeof TreatmentMecicineSchema>
+export type TreatmentMedicineCategory = z.infer<typeof TreatmentMedicineCategorySchema>
 
 /////////////////////////////////////////
-// TREATMENT MECICINE RELATION SCHEMA
+// TREATMENT MEDICINE CATEGORY RELATION SCHEMA
 /////////////////////////////////////////
 
-export type TreatmentMecicineRelations = {
+export type TreatmentMedicineCategoryRelations = {
   treatment: TreatmentWithRelations;
-  medicine?: MedicineWithRelations | null;
+  treatmentMedicines: TreatmentMedicineWithRelations[];
   affectedArea: AffectedAreaWithRelations;
   frequency: MedicineFrequencyWithRelations;
 };
 
-export type TreatmentMecicineWithRelations = z.infer<typeof TreatmentMecicineSchema> & TreatmentMecicineRelations
+export type TreatmentMedicineCategoryWithRelations = z.infer<typeof TreatmentMedicineCategorySchema> & TreatmentMedicineCategoryRelations
 
-export const TreatmentMecicineWithRelationsSchema: z.ZodType<TreatmentMecicineWithRelations> = TreatmentMecicineSchema.merge(z.object({
+export const TreatmentMedicineCategoryWithRelationsSchema: z.ZodType<TreatmentMedicineCategoryWithRelations> = TreatmentMedicineCategorySchema.merge(z.object({
   treatment: z.lazy(() => TreatmentWithRelationsSchema),
-  medicine: z.lazy(() => MedicineWithRelationsSchema).nullable(),
+  treatmentMedicines: z.lazy(() => TreatmentMedicineWithRelationsSchema).array(),
   affectedArea: z.lazy(() => AffectedAreaWithRelationsSchema),
   frequency: z.lazy(() => MedicineFrequencyWithRelationsSchema),
 }))
 
-export default TreatmentMecicineSchema;
+export default TreatmentMedicineCategorySchema;
