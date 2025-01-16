@@ -11,7 +11,6 @@ import { DeliveryMethodInvoiceDeliveryOptionWithRelationsSchema } from './Delive
 export const UserProfileSchema = z.object({
   id: z.number().int(),
   userId: z.string(),
-  email: z.string(),
   lineName: z.string(),
   firstName: z.string(),
   lastName: z.string(),
@@ -25,6 +24,8 @@ export const UserProfileSchema = z.object({
   prefecture: z.string(),
   city: z.string(),
   buildingName: z.string().nullable(),
+  isResistantToSteroid: z.string().nullable(),
+  referrerName: z.string().nullable(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
   deliveryMethodInvoiceDeliveryOptionId: z.number().int().nullable(),

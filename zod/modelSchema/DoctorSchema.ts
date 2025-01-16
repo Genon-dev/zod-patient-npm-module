@@ -8,6 +8,7 @@ import { ReservationWithRelationsSchema } from './ReservationSchema'
 
 export const DoctorSchema = z.object({
   id: z.number().int(),
+  lineId: z.string().nullable(),
   firstName: z.string(),
   lastName: z.string(),
   email: z.string(),
