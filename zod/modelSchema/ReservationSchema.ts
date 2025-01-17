@@ -42,6 +42,7 @@ export const ReservationSchema = z.object({
   meetingId: z.string().nullable(),
   meetingUrl: z.string().nullable(),
   zoomHost: z.string().nullable(),
+  treatmentSkip: z.boolean(),
   deliveryMethodId: z.number().int().nullable(),
   invoiceDeliveryOptionId: z.number().int().nullable(),
   createdAt: z.coerce.date(),
