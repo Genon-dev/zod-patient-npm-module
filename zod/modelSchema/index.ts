@@ -36,3 +36,5 @@ export * from './TreatmentSchema';
 export * from './TreatmentMedicineCategorySchema';
 export * from './TreatmentMedicineSchema';
 export * from './FollowUpRecordSchema';
+export * from './LineNotificationSchema';
+export * from './FollowUpKpiSchema';

@@ -10,6 +10,7 @@ import type { PatientFormWithRelations } from './PatientFormSchema'
 import type { PatientOperationHistoryWithRelations } from './PatientOperationHistorySchema'
 import type { TreatmentWithRelations } from './TreatmentSchema'
 import type { FollowUpRecordWithRelations } from './FollowUpRecordSchema'
+import type { LineNotificationWithRelations } from './LineNotificationSchema'
 import { UserProfileWithRelationsSchema } from './UserProfileSchema'
 import { HokenshouWithRelationsSchema } from './HokenshouSchema'
 import { DocumentWithRelationsSchema } from './DocumentSchema'
@@ -21,6 +22,7 @@ import { PatientFormWithRelationsSchema } from './PatientFormSchema'
 import { PatientOperationHistoryWithRelationsSchema } from './PatientOperationHistorySchema'
 import { TreatmentWithRelationsSchema } from './TreatmentSchema'
 import { FollowUpRecordWithRelationsSchema } from './FollowUpRecordSchema'
+import { LineNotificationWithRelationsSchema } from './LineNotificationSchema'
 
 /////////////////////////////////////////
 // USER SCHEMA
@@ -58,6 +60,7 @@ export type UserRelations = {
   patientOperationHistories: PatientOperationHistoryWithRelations[];
   treatments: TreatmentWithRelations[];
   followUpRecords: FollowUpRecordWithRelations[];
+  lineNotifications: LineNotificationWithRelations[];
 };
 
 export type UserWithRelations = z.infer<typeof UserSchema> & UserRelations
@@ -74,6 +77,7 @@ export const UserWithRelationsSchema: z.ZodType<UserWithRelations> = UserSchema.
   patientOperationHistories: z.lazy(() => PatientOperationHistoryWithRelationsSchema).array(),
   treatments: z.lazy(() => TreatmentWithRelationsSchema).array(),
   followUpRecords: z.lazy(() => FollowUpRecordWithRelationsSchema).array(),
+  lineNotifications: z.lazy(() => LineNotificationWithRelationsSchema).array(),
 }))
 
 export default UserSchema;
