@@ -38,3 +38,5 @@ export * from './TreatmentMedicineSchema';
 export * from './FollowUpRecordSchema';
 export * from './LineNotificationSchema';
 export * from './FollowUpKpiSchema';
+export * from './BeautyProductSchema';
+export * from './PhrRawDataLogSchema';

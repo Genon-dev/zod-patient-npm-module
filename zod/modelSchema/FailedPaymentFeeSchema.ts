@@ -15,6 +15,8 @@ export const FailedPaymentFeeSchema = z.object({
   medicineFee: z.number().int().nullable(),
   expiredHokenshouFee: z.number().int().nullable(),
   cancelFee: z.number().int().nullable(),
+  beautyProductFee: z.number().int().nullable(),
+  beautyProductDeliveryFee: z.number().int().nullable(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
 })
