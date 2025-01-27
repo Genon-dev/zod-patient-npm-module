@@ -4,6 +4,7 @@ import type { DoctorWithRelations } from './DoctorSchema'
 import type { UserWithRelations } from './UserSchema'
 import type { ReservationDeliveryMethodWithRelations } from './ReservationDeliveryMethodSchema'
 import type { InvoiceDeliveryOptionWithRelations } from './InvoiceDeliveryOptionSchema'
+import type { BeautyProductWithRelations } from './BeautyProductSchema'
 import type { MedicalReportWithRelations } from './MedicalReportSchema'
 import type { DeliveryMethodInvoiceDeliveryOptionWithRelations } from './DeliveryMethodInvoiceDeliveryOptionSchema'
 import type { PaymentWithRelations } from './PaymentSchema'
@@ -16,6 +17,7 @@ import { DoctorWithRelationsSchema } from './DoctorSchema'
 import { UserWithRelationsSchema } from './UserSchema'
 import { ReservationDeliveryMethodWithRelationsSchema } from './ReservationDeliveryMethodSchema'
 import { InvoiceDeliveryOptionWithRelationsSchema } from './InvoiceDeliveryOptionSchema'
+import { BeautyProductWithRelationsSchema } from './BeautyProductSchema'
 import { MedicalReportWithRelationsSchema } from './MedicalReportSchema'
 import { DeliveryMethodInvoiceDeliveryOptionWithRelationsSchema } from './DeliveryMethodInvoiceDeliveryOptionSchema'
 import { PaymentWithRelationsSchema } from './PaymentSchema'
@@ -54,6 +56,9 @@ export const ReservationSchema = z.object({
   medicineFee: z.number().int().nullable(),
   expiredHokenshouFee: z.number().int().nullable(),
   cancelFee: z.number().int().nullable(),
+  beautyProductFee: z.number().int().nullable(),
+  beautyProductDeliveryFee: z.number().int().nullable(),
+  beautyProductBoughtId: z.string().nullable(),
   medicalReportId: z.number().int().nullable(),
   deliveryMethodInvoiceDeliveryOptionId: z.number().int().nullable(),
 })
@@ -69,6 +74,7 @@ export type ReservationRelations = {
   user: UserWithRelations;
   deliveryMethod?: ReservationDeliveryMethodWithRelations | null;
   invoiceDeliveryOption?: InvoiceDeliveryOptionWithRelations | null;
+  beautyProductBought?: BeautyProductWithRelations | null;
   medicalReport?: MedicalReportWithRelations | null;
   deliveryMethodInvoiceDeliveryOption?: DeliveryMethodInvoiceDeliveryOptionWithRelations | null;
   payments: PaymentWithRelations[];
@@ -86,6 +92,7 @@ export const ReservationWithRelationsSchema: z.ZodType<ReservationWithRelations>
   user: z.lazy(() => UserWithRelationsSchema),
   deliveryMethod: z.lazy(() => ReservationDeliveryMethodWithRelationsSchema).nullable(),
   invoiceDeliveryOption: z.lazy(() => InvoiceDeliveryOptionWithRelationsSchema).nullable(),
+  beautyProductBought: z.lazy(() => BeautyProductWithRelationsSchema).nullable(),
   medicalReport: z.lazy(() => MedicalReportWithRelationsSchema).nullable(),
   deliveryMethodInvoiceDeliveryOption: z.lazy(() => DeliveryMethodInvoiceDeliveryOptionWithRelationsSchema).nullable(),
   payments: z.lazy(() => PaymentWithRelationsSchema).array(),
